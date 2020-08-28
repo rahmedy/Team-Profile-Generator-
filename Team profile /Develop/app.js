@@ -46,7 +46,7 @@ const engineerQ = [
     }
 ]
 
-const internQ = [
+const intern = [
     {
         type: "input",
         message: "What is the intern's school name?",
@@ -54,7 +54,7 @@ const internQ = [
     }
 ]
 
-const roleQ = [
+const role = [
     {
         type: "list",
         message: "What type of team member would you like to add?",
@@ -80,7 +80,7 @@ init ();
 
 
 async function otherMembers() {
-    const chooseMem = await inquirer.prompt(roleQ);
+    const chooseMem = await inquirer.prompt(role);
     if (chooseMem.teamMember === "Engineer") {
         const allEngineerA  = await inquirer.prompt(engineerQ);
         const generalEngQs = await inquirer.prompt(wholeTeam);
@@ -88,7 +88,7 @@ async function otherMembers() {
         employees.push(person);
         otherMembers();
     } else if (chooseMem.teamMember === "Intern") {
-        const allInternA  = await inquirer.prompt(internQ);
+        const allInternA  = await inquirer.prompt(intern);
         const generalInQs = await inquirer.prompt(wholeTeam);
         person = new Intern(generalInQs.name, generalInQs.id, generalInQs.email, allInternA.school)
         employees.push(person);
