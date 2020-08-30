@@ -16,4 +16,4 @@ ID
 Role-specific property (School, link to GitHub profile, or office number)
 
 
-![](Assets/java.png)
+![](Team Profile/Assets/java.png)
