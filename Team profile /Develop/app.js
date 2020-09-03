@@ -4,11 +4,15 @@ const Intern = require('./lib/Intern');
 const inquirer = require('inquirer');
 const path = require('path');
 const fs = require('fs');
+const jest = require('jest');
 
-const OUTPUT_DIR = path.resolve(__dirname, 'templates');
-const outputPath = path.join(OUTPUT_DIR, 'main.html');
+const OUTPUT_DIR = path.resolve(__dirname, "output");
+const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require('./lib/htmlRenderer');
+
+let employees = [];
+let person;
 
 const wholeTeam = [
 	{
@@ -65,9 +69,6 @@ const role = [
 
 // variables that will be changed
 
-let employees = [];
-let person;
-
 async function init() {
 	console.log('Manager details:');
 	const allMemberAs = await inquirer.prompt(wholeTeam);
@@ -77,16 +78,15 @@ async function init() {
 	console.log(employees);
 	otherMembers();
 }
-init();
 
-//  fucntion that will will prompt either the Engineer questions or the Intern questions 
+//  fucntion that will will prompt either the Engineer questions or the Intern questions
 
 async function otherMembers() {
 	const chooseMem = await inquirer.prompt(role);
 	if (chooseMem.teamMember === 'Engineer') {
 		const allEngineerA = await inquirer.prompt(engineerQ);
 		const generalEngQs = await inquirer.prompt(wholeTeam);
-		person = new  Engineer(generalEngQs.name, generalEngQs.id, generalEngQs.email, allEngineerA.githubName);
+		person = new Engineer(generalEngQs.name, generalEngQs.id, generalEngQs.email, allEngineerA.githubName);
 		employees.push(person);
 		otherMembers();
 	} else if (chooseMem.teamMember === 'Intern') {
@@ -95,16 +95,18 @@ async function otherMembers() {
 		person = new Intern(generalInQs.name, generalInQs.id, generalInQs.email, allInternA.school);
 		employees.push(person);
 		otherMembers();
-	} else if (chooseMem.teamMember === 'I dont want to add another employee!') {
+	} else if (chooseMem.teamMember === 'I dont want to add another employee') {
 		fs.writeFile(outputPath, render(employees), function(err) {
 			if (err) {
 				return console.log(err);
 			}
-			console.log('File saved Sucsefully');
+			console.log('File Saved !');
 		});
+
 		return;
 	}
 }
+init();
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
