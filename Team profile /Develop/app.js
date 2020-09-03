@@ -1,10 +1,13 @@
-const Manager = require('./lib/Manager');
-const Engineer = require('./lib/Engineer');
-const Intern = require('./lib/Intern');
 const inquirer = require('inquirer');
 const path = require('path');
 const fs = require('fs');
 const jest = require('jest');
+
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
+
+
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
@@ -78,10 +81,12 @@ async function init() {
 	console.log(employees);
 	otherMembers();
 }
+init();
 
 //  fucntion that will will prompt either the Engineer questions or the Intern questions
 
 async function otherMembers() {
+	console.log("hellopw")
 	const chooseMem = await inquirer.prompt(role);
 	if (chooseMem.teamMember === 'Engineer') {
 		const allEngineerA = await inquirer.prompt(engineerQ);
@@ -94,20 +99,21 @@ async function otherMembers() {
 		const generalInQs = await inquirer.prompt(wholeTeam);
 		person = new Intern(generalInQs.name, generalInQs.id, generalInQs.email, allInternA.school);
 		employees.push(person);
+		console.log("hello")
 		otherMembers();
-	} else if (chooseMem.teamMember === 'I dont want to add another employee') {
-		const html = render(employees) 
-		fs.writeFile(outputPath, html, function(err) {
-			if (err) {
-				return console.log(err);
-			}
-			console.log('File Saved !');
-		});
+	} else if(chooseMem.teamMember === 'I dont want to add another employee') {
+		console.log("hello")
+		// const html = render(employees) 
+		// fs.writeFile(outputPath, html, function(err) {
+		// 	if (err) {
+		// 		return console.log(err);
+		// 	}
+		// });
 
 		// return;
 	}
 }
-init();
+
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
