@@ -96,14 +96,15 @@ async function otherMembers() {
 		employees.push(person);
 		otherMembers();
 	} else if (chooseMem.teamMember === 'I dont want to add another employee') {
-		fs.writeFile(outputPath, render(employees), function(err) {
+		const html = render(employees) 
+		fs.writeFile(outputPath, html, function(err) {
 			if (err) {
 				return console.log(err);
 			}
 			console.log('File Saved !');
 		});
 
-		return;
+		// return;
 	}
 }
 init();
