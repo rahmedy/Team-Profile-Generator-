@@ -1,19 +1,32 @@
-# Team-Profile-Generator-
-The application will prompt the user for information about the team manager and then information about the team members. The user can input any number of team members, and they may be a mix of engineers and interns.
+#Team Profile Generator
+License
 
-User input
-The project must prompt the user to build an engineering team. An engineering team consists of a manager, and any number of engineers and interns.
+Description
+The application will prompt the user for information about the team manager and then information about the team members. The user can input any number of team members, and they may be a mix of engineers and interns. This assignment must also pass all unit tests. When the user has completed building the team, the application will create an HTML file that displays a nicely formatted team roster based on the information provided by the user.
 
-Roster output
-The project must generate a team.html page in the output directory, that displays a nicely formatted team roster. Each team member should display the following in no particular order:
+#Table of Contents
+Installation
+Usage
+License
+Contribution Guidelines
+Tests
+Questions
+Installation
+To installrun the following command: npm i
 
-Name
+#Use
+To keep track of employees
 
-Role
+#License
+This project is licensed under APACHE-2.0 license.
 
-ID
+#Contribution
+Rayan Ahmedy
 
-Role-specific property (School, link to GitHub profile, or office number)
+#Tests
+Run the following command: npm test
 
+#Contact 
+please contact me at rayanahmedy1999@gmail.com
 
-![](Team profile/Assets/java.png)
+GitHub account: https://github.com/rahmedy
