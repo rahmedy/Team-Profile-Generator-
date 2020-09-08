@@ -90,9 +90,9 @@ async function otherMembers() {
 		employees.push(person);
 		otherMembers();
 	} else if (chooseMem.teamMember === 'Intern') {
-		const allInternA = await inquirer.prompt(intern);
+		const internA = await inquirer.prompt(intern);
 		const generalInQs = await inquirer.prompt(wholeTeam);
-		person = new Intern(generalInQs.name, generalInQs.id, generalInQs.email, allInternA.school);
+		person = new Intern(generalInQs.name, generalInQs.id, generalInQs.email, internA.school);
 		employees.push(person);
 		console.log("hello")
 		otherMembers();
@@ -101,8 +101,7 @@ async function otherMembers() {
 			if (err) {
 				return console.log(err);
 			}
-			console.log(OUTPUT_DIR);
-			console.log(outputPath);
+	
 			console.log(" The file is saved!")
 		})
 		return;
