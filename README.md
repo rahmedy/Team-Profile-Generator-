@@ -28,6 +28,6 @@ Rayan Ahmedy
 Run the following command: npm test
 
 # Contact 
-please contact me at rayanahmedy1999@gmail.com
+Please contact me at rayanahmedy1999@gmail.com
 
 GitHub account: https://github.com/rahmedy
