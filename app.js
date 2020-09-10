@@ -68,9 +68,9 @@ let person;
 
 async function init() {
 	console.log('Manager details:');
-	const allMemberAs = await inquirer.prompt(wholeTeam);
+	const memberA = await inquirer.prompt(wholeTeam);
 	const managerAs = await inquirer.prompt(manager);
-	person = new Manager(allMemberAs.name, allMemberAs.id, allMemberAs.email, managerAs.officeNum);
+	person = new Manager(memberA.name, memberA.id, memberA.email, managerAs.officeNum);
 	employees.push(person);
 	console.log(employees);
 	otherMembers();
@@ -84,9 +84,9 @@ async function otherMembers() {
 	const chooseMem = await inquirer.prompt(role);
 
 	if (chooseMem.teamMember === 'Engineer') {
-		const allEngineerA = await inquirer.prompt(engineerQ);
+		const engineerA = await inquirer.prompt(engineerQ);
 		const generalEngQs = await inquirer.prompt(wholeTeam);
-		person = new Engineer(generalEngQs.name, generalEngQs.id, generalEngQs.email, allEngineerA.githubName);
+		person = new Engineer(generalEngQs.name, generalEngQs.id, generalEngQs.email, engineerA.githubName);
 		employees.push(person);
 		otherMembers();
 	} else if (chooseMem.teamMember === 'Intern') {
