@@ -7,6 +7,8 @@ The application will prompt the user for information about the team manager and 
 # Link to showcasing application: 
 https://youtu.be/eAxf12nx8fI
 
+![](Assets/demo.png)
+
 # Table of Contents
 Installation
 Usage
